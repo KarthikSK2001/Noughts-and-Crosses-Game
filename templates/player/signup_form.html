@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Tic-Tac-Toe | Sign Up
+{% endblock title %}
+
+{% block content %}
+<style>
+.help-block{
+    font-weight:bolder;
+    color:blue;
+}
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    margin-bottom:1rem
+}
+
+.progress div {
+    background-color: crimson
+}form{
+    border:3px solid #0088cc;
+    padding:1rem;
+    border-radius:1rem;
+    margin:1rem
+}
+</style>
+    <form role="form" action="{% url 'player_signup' %}" method="POST">
+        {% csrf_token %}
+
+                               <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;margin-top:1rem;border-radius:0.5rem;margin-bottom:1rem">Register Here To Play</label>
+ <div class="mt-2">
+                        <div class="progress" style="color:crimson">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="color:crimson"></div>
+                        </div>
+                       
+                    </div>
+        {{form | crispy}}
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "base.html"%}
+
+{% block title %}
+    Home | {{user.username}}'s Profile
+{% endblock title %}
+
+{% block content %}
+<style>
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    margin-bottom:1rem
+}
+
+.progress div {
+    background-color: crimson
+}
+ .info {
+        color: #002bff;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+</style>
+<div class="mt-2">
+  <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;border-radius:1rem">Welcome, {{user.username}}</label>
+
+                    <div class="mt-2">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                       
+                    </div>
+                </div>
+    {% comment %} <h2 class="text-primary">Welcome {{user.username}}</h2> {% endcomment %}
+    <div class="mt-2" style='border:3px solid #0088cc;
+    padding:1rem;
+    border-radius:1rem;
+   '>
+  <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;border-radius:1rem">Your Active Game Updates</label>
+
+                    <div class="mt-2">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                       
+                    </div>
+               
+
+    <div class="row">
+        <div class="col-md-6">
+              <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;border-radius:1rem;margin-bottom:0.5rem">Active Games</label>
+
+            {% include "player/game_list_snippet.html" with games_list=active_games %}
+
+                          <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;border-radius:1rem;margin-bottom:0.5rem">Finished Games</label>
+
+            {% include "player/game_list_snippet.html" with games_list=finished_games %}
+
+
+            <p>
+                <a class="btn btn-primary mt-2" 
+                    href="{% url 'player_new_invitation' %}">Start a Game</a>
+            </p>
+              <p class="info" style=' color: #002bff;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bolder;'><span style="color: crimson;">*</span> (Click Here to Start a Game with your Friends) </p>
+        </div>
+
+        <div class="col-md-6">
+                          <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;border-radius:1rem;margin-bottom:0.5rem"> invitations</label>
+
+            {% if invitations %}
+                <div class="list-group">
+                    {% for inv in invitations %}
+                        <a class="list-group-item" 
+                            href="{% url 'player_accept_invitation' id=inv.id %}">
+                            {{inv.from_user.username}} has invited you to a Game.
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>You have no invitations Yet.</p>
+            {% endif %}
+        </div>
+    </div>
+ </div>
+{% endblock %}

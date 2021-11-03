@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block content %}
+<style>
+body {
+    background-color: #eee
+}
+
+.card {
+    border: none;
+    border-radius: 10px
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    background-color: #fffbec;
+      width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: crimson
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+
+
+.list-group {
+    width:800px !important
+}
+
+.list-group-item {
+    margin-top: 10px;
+    border-radius: none;
+    background: #5E35B1;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+     border-radius:0.5rem
+}
+
+.list-group-item:hover {
+    transform: scaleX(1.1)
+}
+
+.check {
+    opacity: 0;
+    transition: all 0.6s ease-in-out
+}
+
+.list-group-item:hover .check {
+    opacity: 1
+}
+
+.about span {
+    font-size: 12px;
+    margin-right: 10px
+}
+
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer
+}
+
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 0;
+    border: 1px solid #10a3f9;
+    border-radius: 3px;
+    background-color: white
+}
+
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 7px;
+    height: 12px;
+    border: solid #007bff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px
+}
+
+input[type="checkbox"]:checked+.check {
+    opacity: 1
+}
+h6{
+    text-align:center
+}
+ .hs-responsive-embed-youtube {
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 Aspect Ratio */
+    }
+    
+    .hs-responsive-embed-youtube iframe {
+        position: absolute;
+        width: 100%!important;
+        height: 100%!important;
+        border-radius: 5px;
+        border: 5px solid transparent;
+        background-image: linear-gradient(black, black), linear-gradient(270deg, #14f1d4, #B95DD7 50%, #85ff67 100%);
+        background-repeat: no-repeat;
+        background-origin: padding-box, border-box;
+        text-align: center;
+        background-image: linear-gradient(grey, cornflowerblue, #B95DD7), linear-gradient(180deg, cornflowerblue, rgb(240, 28, 240) 50%, rgb(52, 255, 62));
+        background-repeat: no-repeat;
+        background-position: 0 0, 0 100%;
+        background-origin: padding-box, border-box;
+        animation: highlight 1s infinite alternate;
+    }
+    .responsive-youtube{
+width:560px;
+height: 315px;
+border: 5px solid transparent;
+        background-image: linear-gradient(black, black), linear-gradient(270deg, #14f1d4, #B95DD7 50%, #85ff67 100%);
+        background-repeat: no-repeat;
+        background-origin: padding-box, border-box;
+        text-align: center;
+        background-image: linear-gradient(grey, cornflowerblue, #B95DD7), linear-gradient(180deg, cornflowerblue, rgb(240, 28, 240) 50%, rgb(52, 255, 62));
+        background-repeat: no-repeat;
+        background-position: 0 0, 0 100%;
+        background-origin: padding-box, border-box;
+        animation: highlight 1s infinite alternate;
+        border-radius:0.5rem
+}
+@media (min-width: 0) and (max-width:425px){
+.responsive-youtube{
+width:100%;
+height: 198px;
+}
+}
+</style>
+    <div class="container mt-5 mb-3">
+   
+                        
+        <div >
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"><img src="/static/images/headerlogo.png" style='width:50px;height:50px'> </div>
+                        <div class="ms-2 c-details">
+                         
+                        </div>
+                    </div>
+                    <div class="badge"> <span><span style='color:crimson;font-size:20px'>	&#10084;</span></span> </div>
+                </div>
+               <div class="mt-2 mb-2">
+                        <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;">A QUICK WALKTHROUGH</label>
+
+                    <div class="mt-2">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <center><iframe width="560" height="315" class="responsive-youtube"  src="https://www.youtube.com/embed/TxfgnDgZ3yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style='border-radius:0.5rem'></iframe></center>
+                {% comment %} <div class="hs-responsive-embed-youtube"><iframe src="https://www.youtube.com/embed/lbBNr6m9gfM" frameborder="0" allowfullscreen=""></iframe></div> {% endcomment %}
+                <div class="mt-2">
+                        <label class="label success" style="min-width:100%;background-color: #0088cc;padding: 0.5rem;color: white;text-align: center;">FEATURES OF THE GAME</label>
+
+                    <div class="mt-2">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="container d-flex justify-content-center text-center">
+    <ul class="list-group mt-5 text-white">
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+        
+            <div class="d-flex flex-row"> 
+                <div class="ml-2">
+                    <h6 class="mb-0" style='text-align:center;font-weight:bolder'>1. Sign Up and Create an User Account</h6>
+                    <div class="about"> <span>Simple Registration Process</span>  </div>
+                </div>
+            </div>
+            
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+          <div class="d-flex flex-row"> 
+                <div class="ml-2">
+                    <h6 class="mb-0" style='text-align:center;font-weight:bolder'>2. Invite Other Registered Friends to play</h6>
+                    <div class="about"> <span>Send An Invite to Enjoy Playing</span>  </div>
+                </div>
+            </div>
+            
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+           <div class="d-flex flex-row"> 
+                <div class="ml-2">
+                    <h6 class="mb-0" style='text-align:center;font-weight:bolder'>3. Wins/Losses are Stored</h6>
+                    <div class="about"> <span>Wins / Losses are displayed </span>  </div>
+                </div>
+            </div>
+           
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+           <div class="d-flex flex-row">
+                <div class="ml-2">
+                    <h6 class="mb-0" style='text-align:center;font-weight:bolder'>4. User Friendly and Live Version</h6>
+                    <div class="about"> <span>Responsive and gives that Feel</span> </div>
+                </div>
+            </div>
+            
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+            <div class="d-flex flex-row">
+                <div class="ml-2">
+                    <h6 class="mb-0" style='text-align:center;font-weight:bolder'>5. Contact Us for any Queries</h6>
+                    <div class="about"> <span>We are available 24/7</span></div>
+                </div>
+            </div>
+            
+        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+    
+</div>
+{% endblock %}

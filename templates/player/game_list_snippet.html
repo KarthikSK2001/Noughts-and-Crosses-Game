@@ -1,0 +1,35 @@
+<style>
+.list-group{
+    min-width:100%;padding: 0.5rem;color: white;text-align: center;border-radius:1rem;margin-bottom:0.5rem;
+    text-transform:capitalize;
+    background-color:white;
+    color:#0088cc;
+     font-weight:bolder;
+}
+.badge{
+    color:black;
+    font-weight:bolder;
+    margin-bottom:0.5rem
+}
+</style>
+{% if games_list %}
+    <div class="list-group bg-info">
+        {% for game in games_list %}
+            <a class="list-group-item list-group-item-info" href="{{game.get_absolute_url}}" style=''>
+                {{game}}
+                {% if game.status not in 'FS' %}
+                    {% if game.status == "D" %}
+                        -> Draw Match
+                    {% elif game.status == "W" and user == game.first_player %}
+                        -> You Won!
+                    {% elif game.status == "L" and user == game.second_player %}
+                        -> You Won!
+                    {% else %}
+                        -> You Lost
+                    {% endif %}
+                {% endif %}
+                [<span class="badge">{{game.move_set.count}}</span>]
+            </a>
+        {% endfor %}
+    </div>
+{% endif %}
